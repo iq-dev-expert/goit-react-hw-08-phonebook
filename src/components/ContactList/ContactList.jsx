@@ -1,4 +1,4 @@
-import { List } from 'components/ContactList/ContactList.styled';
+import { List } from './ContactList.styled';
 import { Button } from 'utils-style/Template.styled';
 import { useContacts } from 'hooks/useContacts';
 

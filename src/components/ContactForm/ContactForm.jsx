@@ -1,4 +1,4 @@
-import { Form } from 'components/ContactForm/ContactForm.styled';
+import { Form } from './ContactForm.styled';
 import { Button } from 'utils-style/Template.styled';
 import { useContacts } from 'hooks/useContacts';
 
