@@ -15,8 +15,8 @@ export const useContacts = () => {
   const error = useSelector(selectError);
   const filter = useSelector(selectFilterValue);
   const filteredContacts = useSelector(selectVisibleContacts);
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
   const addContact = (name, phone) => {
     dispatch(actions.addContact(name, phone));
   };
