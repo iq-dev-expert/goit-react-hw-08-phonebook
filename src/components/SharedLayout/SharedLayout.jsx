@@ -1,15 +1,17 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { AppBar } from 'components/AppBar/AppBar';
+import { Header } from 'components/Header/Header';
 
 export const SharedLayout = () => {
   return (
     <>
-      <AppBar />
+      <Header />
 
-      <Suspense>
-        <Outlet />
-      </Suspense>
+      <main>
+        <Suspense>
+          <Outlet />
+        </Suspense>
+      </main>
     </>
   );
 };
