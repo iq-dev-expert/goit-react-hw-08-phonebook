@@ -7,11 +7,10 @@ export const RegisterForm = () => {
     e.preventDefault();
 
     const form = e.target;
-    const name = form.elements.name.value;
-    const email = form.elements.email.value;
-    const password = form.elements.password.value;
+    const formData = new FormData(form);
+    const nameEmailPass = Object.fromEntries(formData.entries());
 
-    register({ name, email, password });
+    register(nameEmailPass);
     form.reset();
   };
 
