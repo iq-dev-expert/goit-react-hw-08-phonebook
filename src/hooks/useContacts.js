@@ -1,13 +1,13 @@
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as actions from 'redux/operations';
+import * as actions from 'redux/reduxContactsList/operations';
 import {
   selectContacts,
   selectError,
   selectFilterValue,
   selectIsLoading,
   selectVisibleContacts,
-} from 'redux/selectors';
+} from 'redux/reduxContactsList/selectors';
 
 export const useContacts = () => {
   const contacts = useSelector(selectContacts);
@@ -15,8 +15,8 @@ export const useContacts = () => {
   const error = useSelector(selectError);
   const filter = useSelector(selectFilterValue);
   const filteredContacts = useSelector(selectVisibleContacts);
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
   const addContact = (name, phone) => {
     dispatch(actions.addContact(name, phone));
   };
