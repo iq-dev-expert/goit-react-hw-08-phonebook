@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import {
   selectIsLoggedIn,
-  selectIsRefreshing,
+  // selectIsRefreshing,
   selectUser,
 } from 'redux/reduxAuth/selectors';
 import * as actions from 'redux/reduxAuth/operations';
