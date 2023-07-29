@@ -1,6 +1,21 @@
+import { useAuth } from 'hooks/useAuth';
+
 export const LoginForm = () => {
+  const { logIn } = useAuth();
+
+  const onSubmit = e => {
+    e.preventDefault();
+
+    const form = e.target;
+    const email = form.elements.email.value;
+    const password = form.elements.password.value;
+
+    logIn({ email, password });
+    form.reset();
+  };
+
   return (
-    <form autoComplete="off">
+    <form onSubmit={onSubmit} autoComplete="off">
       <label>
         Email
         <input type="email" name="email" />
