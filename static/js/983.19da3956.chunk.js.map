@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/983.19da3956.chunk.js","mappings":"4JAIA,UAJiB,WACf,OAAO,yDACR,C","sources":["pages/HomePage.jsx"],"sourcesContent":["const HomePage = () => {\n  return <h1>Contacts manager welcome page</h1>;\n};\n\nexport default HomePage;\n"],"names":[],"sourceRoot":""}
