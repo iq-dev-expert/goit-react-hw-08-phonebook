@@ -1,6 +1,22 @@
+import { useAuth } from 'hooks/useAuth';
+
 export const RegisterForm = () => {
+  const { register } = useAuth();
+
+  const onSubmit = e => {
+    e.preventDefault();
+
+    const form = e.target;
+    const name = form.elements.name.value;
+    const email = form.elements.email.value;
+    const password = form.elements.password.value;
+
+    register({ name, email, password });
+    form.reset();
+  };
+
   return (
-    <form autoComplete="off">
+    <form onSubmit={onSubmit} autoComplete="off">
       <label>
         Username
         <input type="text" name="name" />
