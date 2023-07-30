@@ -17,8 +17,8 @@ export const useContacts = () => {
   const filteredContacts = useSelector(selectVisibleContacts);
 
   const dispatch = useDispatch();
-  const addContact = (name, phone) => {
-    dispatch(actions.addContact(name, phone));
+  const addContact = ({ name, number }) => {
+    dispatch(actions.addContact({ name, number }));
   };
   const deleteContact = contactId => dispatch(actions.deleteContact(contactId));
 
