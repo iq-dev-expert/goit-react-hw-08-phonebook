@@ -1,7 +1,7 @@
 import { useAuth } from 'hooks/useAuth';
 
 export const LoginForm = () => {
-  const { logIn } = useAuth();
+  const { logIn, error } = useAuth();
 
   const onSubmit = e => {
     e.preventDefault();
@@ -15,16 +15,19 @@ export const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={onSubmit} autoComplete="off">
-      <label>
-        Email
-        <input type="email" name="email" />
-      </label>
-      <label>
-        Password
-        <input type="password" name="password" />
-      </label>
-      <button type="submit">Log In</button>
-    </form>
+    <>
+      <form onSubmit={onSubmit} autoComplete="off">
+        <label>
+          Email
+          <input type="email" name="email" />
+        </label>
+        <label>
+          Password
+          <input type="password" name="password" />
+        </label>
+        <button type="submit">Log In</button>
+      </form>
+      {error && <p>{error}</p>}
+    </>
   );
 };
