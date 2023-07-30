@@ -12,11 +12,11 @@ export const ContactList = () => {
       ) : (
         filteredContacts.length > 0 && (
           <List>
-            {filteredContacts.map(({ id, name, phone }) => {
+            {filteredContacts.map(({ id, name, number }) => {
               return (
                 <li key={id}>
                   <p>
-                    {name}: {phone}{' '}
+                    {name}: {number}{' '}
                   </p>
                   <Button
                     type="button"

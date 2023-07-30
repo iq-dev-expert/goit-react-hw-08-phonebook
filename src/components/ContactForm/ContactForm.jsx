@@ -10,7 +10,7 @@ export const ContactForm = () => {
 
     const form = e.target;
     const name = form.elements.name.value;
-    const phone = form.elements.phone.value;
+    const number = form.elements.phone.value;
 
     if (isContactInPhonebook(name)) {
       alert(`${name} is already in contacts.`);
@@ -18,7 +18,7 @@ export const ContactForm = () => {
       return;
     }
 
-    addContact({ name, phone });
+    addContact({ name, number });
     form.reset();
   };
 
