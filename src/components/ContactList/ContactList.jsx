@@ -1,9 +1,9 @@
 import { List } from './ContactList.styled';
-import { Button } from 'utils-style/Template.styled';
 import { useContacts } from 'hooks/useContacts';
+import { ContactItem } from 'components/ContactItem/ContactItem';
 
 export const ContactList = () => {
-  const { filteredContacts, deleteContact, error } = useContacts();
+  const { filteredContacts, error } = useContacts();
 
   return (
     <>
@@ -12,23 +12,16 @@ export const ContactList = () => {
       ) : (
         filteredContacts.length > 0 && (
           <List>
-            {filteredContacts.map(({ id, name, number }) => {
-              return (
-                <li key={id}>
-                  <p>
-                    {name}: {number}{' '}
-                  </p>
-                  <Button
-                    type="button"
-                    onClick={() => {
-                      deleteContact(id);
-                    }}
-                  >
-                    Delete
-                  </Button>
-                </li>
-              );
-            })}
+            {filteredContacts.map(({ id, name, number }, idx) => (
+              <li key={id}>
+                <ContactItem
+                  id={id}
+                  name={name}
+                  number={number}
+                  contactNumber={idx + 1}
+                />
+              </li>
+            ))}
           </List>
         )
       )}
