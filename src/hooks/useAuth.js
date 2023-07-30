@@ -1,15 +1,16 @@
 import { useDispatch, useSelector } from 'react-redux';
 import {
   selectIsLoggedIn,
-  // selectIsRefreshing,
+  selectIsRefreshing,
   selectUser,
 } from 'redux/reduxAuth/selectors';
 import * as actions from 'redux/reduxAuth/operations';
+import { useCallback } from 'react';
 
 export const useAuth = () => {
   const user = useSelector(selectUser);
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  //   const isRefreshing = useSelector(selectIsRefreshing);
+  const isRefreshing = useSelector(selectIsRefreshing);
 
   const dispatch = useDispatch();
   const register = ({ name, email, password }) =>
@@ -20,5 +21,18 @@ export const useAuth = () => {
 
   const logOut = () => dispatch(actions.logOut());
 
-  return { isLoggedIn, user, register, logIn, logOut };
+  const refreshUser = useCallback(
+    () => dispatch(actions.refreshUser()),
+    [dispatch]
+  );
+
+  return {
+    isLoggedIn,
+    user,
+    isRefreshing,
+    register,
+    logIn,
+    logOut,
+    refreshUser,
+  };
 };
