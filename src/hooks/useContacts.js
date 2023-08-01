@@ -17,15 +17,18 @@ export const useContacts = () => {
   const filteredContacts = useSelector(selectVisibleContacts);
 
   const dispatch = useDispatch();
-  const addContact = ({ name, number }) => {
-    dispatch(actions.addContact({ name, number }));
-  };
-  const deleteContact = contactId => dispatch(actions.deleteContact(contactId));
-
   const fetchContacts = useCallback(
     () => dispatch(actions.fetchContacts()),
     [dispatch]
   );
+
+  const addContact = ({ name, number }) =>
+    dispatch(actions.addContact({ name, number }));
+
+  const deleteContact = contactId => dispatch(actions.deleteContact(contactId));
+
+  const editContact = (contactId, editedContact) =>
+    dispatch(actions.editContact({ contactId, editedContact }));
 
   return {
     contacts,
@@ -33,8 +36,9 @@ export const useContacts = () => {
     error,
     filter,
     filteredContacts,
+    fetchContacts,
     addContact,
     deleteContact,
-    fetchContacts,
+    editContact,
   };
 };

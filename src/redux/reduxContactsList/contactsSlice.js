@@ -3,6 +3,7 @@ import {
   fetchContacts,
   addContact,
   deleteContact,
+  editContact,
 } from 'redux/reduxContactsList/operations';
 
 const initialState = { items: [], isLoading: false, error: null };
@@ -22,7 +23,15 @@ export const contactsSlice = createSlice({
         const index = state.items.findIndex(
           contact => contact.id === action.payload.id
         );
+
         state.items.splice(index, 1);
+      })
+      .addCase(editContact.fulfilled, (state, action) => {
+        const index = state.items.findIndex(
+          contact => contact.id === action.payload.id
+        );
+
+        state.items.splice(index, 1, action.payload);
       })
 
       .addMatcher(isAnyOf(...getActions('pending')), onPending)
@@ -45,7 +54,7 @@ const onFulfilled = state => {
   state.error = null;
 };
 
-const extraActions = [fetchContacts, addContact, deleteContact];
+const extraActions = [fetchContacts, addContact, deleteContact, editContact];
 const getActions = type => extraActions.map(action => action[type]);
 
 export const contactsReducer = contactsSlice.reducer;
