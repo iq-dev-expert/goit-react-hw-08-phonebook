@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
+import { useContacts } from 'hooks/useContacts';
 import { filterContacts } from 'redux/reduxContactsList/filterSlice';
 import { Label } from './Filter.styled';
-import { useContacts } from 'hooks/useContacts';
 
 export const Filter = () => {
   const dispatch = useDispatch();

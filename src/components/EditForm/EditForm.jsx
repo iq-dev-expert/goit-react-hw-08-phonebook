@@ -1,5 +1,6 @@
 import { useContacts } from 'hooks/useContacts';
 import { Button } from 'utils-style/Template.styled';
+import PropTypes from 'prop-types';
 
 export const EditForm = ({ toggleModal, id, name, number }) => {
   const { editContact } = useContacts();
@@ -49,4 +50,11 @@ export const EditForm = ({ toggleModal, id, name, number }) => {
       </Button>
     </form>
   );
+};
+
+EditForm.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+  toggleModal: PropTypes.func.isRequired,
 };

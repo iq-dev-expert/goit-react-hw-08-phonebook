@@ -1,6 +1,6 @@
+import { useContacts } from 'hooks/useContacts';
 import { Form } from './ContactForm.styled';
 import { Button } from 'utils-style/Template.styled';
-import { useContacts } from 'hooks/useContacts';
 
 export const ContactForm = () => {
   const { contacts, addContact } = useContacts();

@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   selectError,
@@ -6,7 +7,6 @@ import {
   selectUser,
 } from 'redux/reduxAuth/selectors';
 import * as actions from 'redux/reduxAuth/operations';
-import { useCallback } from 'react';
 
 export const useAuth = () => {
   const user = useSelector(selectUser);

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import { useContacts } from 'hooks/useContacts';
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
 
 export const Loader = () => {
   const { isLoading } = useContacts();
