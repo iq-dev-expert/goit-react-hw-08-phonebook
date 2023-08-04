@@ -1,6 +1,6 @@
-import { List } from './ContactList.styled';
 import { useContacts } from 'hooks/useContacts';
 import { ContactItem } from 'components/ContactItem/ContactItem';
+import { List } from './ContactList.styled';
 
 export const ContactList = () => {
   const { filteredContacts, error } = useContacts();
@@ -18,7 +18,7 @@ export const ContactList = () => {
                   id={id}
                   name={name}
                   number={number}
-                  contactNumber={idx + 1}
+                  serialNumber={idx + 1}
                 />
               </li>
             ))}

@@ -1,9 +1,10 @@
-import { Modal } from 'components/Modal/Modal';
-import { useContacts } from 'hooks/useContacts';
 import { useState } from 'react';
+import { useContacts } from 'hooks/useContacts';
+import { Modal } from 'components/Modal/Modal';
 import { Button } from 'utils-style/Template.styled';
+import PropTypes from 'prop-types';
 
-export const ContactItem = ({ id, name, number, contactNumber }) => {
+export const ContactItem = ({ id, name, number, serialNumber }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { deleteContact } = useContacts();
 
@@ -13,7 +14,7 @@ export const ContactItem = ({ id, name, number, contactNumber }) => {
 
   return (
     <>
-      <span>#{contactNumber}==</span>
+      <span>#{serialNumber}==</span>
       <p>
         {name}: {number}
       </p>
@@ -33,4 +34,11 @@ export const ContactItem = ({ id, name, number, contactNumber }) => {
       )}
     </>
   );
+};
+
+ContactItem.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+  serialNumber: PropTypes.number.isRequired,
 };

@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
-import { Overlay, ModalStyle } from './Modal.styled';
 import { EditForm } from 'components/EditForm/EditForm';
+import { Overlay, ModalStyle } from './Modal.styled';
+import PropTypes from 'prop-types';
 
 export const Modal = ({ toggleModal, ...props }) => {
   useEffect(() => {
@@ -29,4 +30,11 @@ export const Modal = ({ toggleModal, ...props }) => {
       </ModalStyle>
     </Overlay>
   );
+};
+
+Modal.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+  toggleModal: PropTypes.func.isRequired,
 };
