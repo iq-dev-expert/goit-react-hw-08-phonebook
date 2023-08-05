@@ -19,7 +19,9 @@ export const register = createAsyncThunk(
       setAuthHeader(data.token);
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(
+        (error.message = 'All fields must be filled!')
+      );
     }
   }
 );

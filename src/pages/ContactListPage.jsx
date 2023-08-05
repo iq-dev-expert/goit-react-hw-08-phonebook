@@ -4,9 +4,6 @@ import { ContactForm } from 'components/ContactForm/ContactForm';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
 import { Loader } from 'components/Loader/Loader';
-import { ThemeProvider } from '@emotion/react';
-import { Container } from 'components/App/App.styled';
-import { theme } from 'utils-style/Theme';
 
 const ContactListPage = () => {
   const { fetchContacts } = useContacts();
@@ -16,17 +13,15 @@ const ContactListPage = () => {
   }, [fetchContacts]);
 
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <Loader />
-      <Container>
-        <h1>Phonebook</h1>
-        <ContactForm />
+      <h1 className="mb-5 text-center text-xl font-semibold">Phonebook</h1>
+      <ContactForm />
 
-        <h2>Contacts</h2>
-        <Filter />
-        <ContactList />
-      </Container>
-    </ThemeProvider>
+      <h2 className="mb-5 text-xl font-semibold">Contacts</h2>
+      <Filter />
+      <ContactList />
+    </>
   );
 };
 

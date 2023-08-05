@@ -1,13 +1,12 @@
 import { useEffect } from 'react';
 import { EditForm } from 'components/EditForm/EditForm';
-import { Overlay, ModalStyle } from './Modal.styled';
 import PropTypes from 'prop-types';
 
-export const Modal = ({ toggleModal, ...props }) => {
+export const Modal = ({ closeModal, ...props }) => {
   useEffect(() => {
     const onEscClick = e => {
       if (e.code === 'Escape') {
-        toggleModal();
+        closeModal();
       }
     };
 
@@ -15,20 +14,23 @@ export const Modal = ({ toggleModal, ...props }) => {
     return () => {
       document.removeEventListener('keydown', onEscClick);
     };
-  }, [toggleModal]);
+  }, [closeModal]);
 
   const onOverlayClick = e => {
     if (e.target === e.currentTarget) {
-      toggleModal();
+      closeModal();
     }
   };
 
   return (
-    <Overlay onClick={onOverlayClick}>
-      <ModalStyle>
-        <EditForm toggleModal={toggleModal} {...props} />
-      </ModalStyle>
-    </Overlay>
+    <div
+      onClick={onOverlayClick}
+      className="fixed left-0 top-0 z-50 flex h-screen w-screen items-center justify-center bg-backdrop-color"
+    >
+      <div className="max-h-full max-w-full">
+        <EditForm closeModal={closeModal} {...props} />
+      </div>
+    </div>
   );
 };
 
@@ -36,5 +38,5 @@ Modal.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   number: PropTypes.string.isRequired,
-  toggleModal: PropTypes.func.isRequired,
+  closeModal: PropTypes.func.isRequired,
 };

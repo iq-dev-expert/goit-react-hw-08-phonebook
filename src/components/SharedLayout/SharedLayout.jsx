@@ -12,9 +12,11 @@ export const SharedLayout = () => {
         <Header />
 
         <main>
-          <Suspense fallback={null}>
-            <Outlet />
-          </Suspense>
+          <div className="px-5 py-10 mx-auto w-3/4">
+            <Suspense fallback={null}>
+              <Outlet />
+            </Suspense>
+          </div>
         </main>
       </>
     )

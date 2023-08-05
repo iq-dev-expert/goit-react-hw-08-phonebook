@@ -1,6 +1,5 @@
 import { useContacts } from 'hooks/useContacts';
 import { ContactItem } from 'components/ContactItem/ContactItem';
-import { List } from './ContactList.styled';
 
 export const ContactList = () => {
   const { filteredContacts, error } = useContacts();
@@ -11,9 +10,9 @@ export const ContactList = () => {
         <p>{error}</p>
       ) : (
         filteredContacts.length > 0 && (
-          <List>
+          <ul className="grid grid-cols-2 gap-5">
             {filteredContacts.map(({ id, name, number }, idx) => (
-              <li key={id}>
+              <li key={id} className="block rounded p-5 shadow-custom-shadow">
                 <ContactItem
                   id={id}
                   name={name}
@@ -22,7 +21,7 @@ export const ContactList = () => {
                 />
               </li>
             ))}
-          </List>
+          </ul>
         )
       )}
     </>

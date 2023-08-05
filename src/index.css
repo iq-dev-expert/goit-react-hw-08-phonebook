@@ -1,4 +1,7 @@
 @import-normalize; /* bring in normalize.css styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
   margin: 0;
@@ -14,7 +17,11 @@ code {
     monospace;
 }
 
-img {
+.active {
+  @apply bg-violet-500 text-white;
+}
+
+/* img {
   display: block;
   max-width: 100%;
   height: auto;
@@ -40,8 +47,4 @@ h6,
 p {
   margin-top: 0;
   margin-bottom: 0;
-}
-
-header {
-  border: 2px solid tomato;
-}
+} */
