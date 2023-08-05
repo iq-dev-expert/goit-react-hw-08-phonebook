@@ -6,9 +6,11 @@ import { UserMenu } from 'components/UserMenu/UserMenu';
 export const Header = () => {
   const { isLoggedIn } = useAuth();
   return (
-    <header>
-      <Navigation />
-      {isLoggedIn ? <UserMenu /> : <AuthNav />}
+    <header className="text-xl font-semibold">
+      <div className="mx-auto flex w-3/4 items-center justify-between rounded p-5 shadow-custom-shadow">
+        <Navigation />
+        {isLoggedIn ? <UserMenu /> : <AuthNav />}
+      </div>
     </header>
   );
 };
