@@ -1,7 +1,9 @@
 import { useAuth } from 'hooks/useAuth';
+import { useGlobal } from 'hooks/useGlobal';
 
 export const RegisterForm = () => {
-  const { register, error } = useAuth();
+  const { register } = useAuth();
+  const { error } = useGlobal();
 
   const onSubmit = e => {
     e.preventDefault();

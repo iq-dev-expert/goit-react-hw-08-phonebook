@@ -14,7 +14,6 @@ const ContactListPage = () => {
 
   return (
     <>
-      <Loader />
       <h1 className="mb-5 text-center text-xl font-semibold">Phonebook</h1>
       <ContactForm />
 

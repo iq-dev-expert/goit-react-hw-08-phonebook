@@ -2,17 +2,13 @@ import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   selectContacts,
-  selectError,
   selectFilterValue,
-  selectIsLoading,
   selectVisibleContacts,
 } from 'redux/reduxContactsList/selectors';
 import * as actions from 'redux/reduxContactsList/operations';
 
 export const useContacts = () => {
   const contacts = useSelector(selectContacts);
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
   const filter = useSelector(selectFilterValue);
   const filteredContacts = useSelector(selectVisibleContacts);
 
@@ -32,8 +28,6 @@ export const useContacts = () => {
 
   return {
     contacts,
-    isLoading,
-    error,
     filter,
     filteredContacts,
     fetchContacts,

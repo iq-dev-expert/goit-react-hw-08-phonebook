@@ -1,12 +1,10 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { globalReducer, globalSlice } from './reduxGlobal/globalSlice';
 import {
   contactsReducer,
   contactsSlice,
-} from 'redux/reduxContactsList/contactsSlice';
-import {
-  filterReducer,
-  filterSlice,
-} from 'redux/reduxContactsList/filterSlice';
+} from './reduxContactsList/contactsSlice';
+import { filterReducer, filterSlice } from './reduxContactsList/filterSlice';
 import { authReducer, authSlice } from './reduxAuth/authSlice';
 import {
   persistStore,
@@ -27,6 +25,7 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
+  [globalSlice.name]: globalReducer,
   [authSlice.name]: persistReducer(persistConfig, authReducer),
   [contactsSlice.name]: contactsReducer,
   [filterSlice.name]: filterReducer,

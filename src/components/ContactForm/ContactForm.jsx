@@ -1,4 +1,14 @@
 import { useContacts } from 'hooks/useContacts';
+import { Notify } from 'notiflix';
+
+const notifyInfoOptions = {
+  position: 'left-top',
+  distance: '50px',
+  fontSize: '18px',
+  width: '300px',
+  cssAnimationStyle: 'zoom',
+  cssAnimationDuration: 1000,
+};
 
 export const ContactForm = () => {
   const { contacts, addContact } = useContacts();
@@ -11,7 +21,7 @@ export const ContactForm = () => {
     const number = form.elements.phone.value;
 
     if (isContactInPhonebook(name)) {
-      alert(`${name} is already in contacts.`);
+      Notify.info(`${name} is already in contacts.`, notifyInfoOptions);
       form.reset();
       return;
     }

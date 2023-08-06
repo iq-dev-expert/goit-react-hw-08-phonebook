@@ -1,12 +1,12 @@
-import { createSlice, isAnyOf } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import {
   fetchContacts,
   addContact,
   deleteContact,
   editContact,
-} from 'redux/reduxContactsList/operations';
+} from './operations';
 
-const initialState = { items: [], isLoading: false, error: null };
+const initialState = { items: [] };
 
 export const contactsSlice = createSlice({
   name: 'contacts',
@@ -32,29 +32,8 @@ export const contactsSlice = createSlice({
         );
 
         state.items.splice(index, 1, action.payload);
-      })
-
-      .addMatcher(isAnyOf(...getActions('pending')), onPending)
-      .addMatcher(isAnyOf(...getActions('rejected')), onRejected)
-      .addMatcher(isAnyOf(...getActions('fulfilled')), onFulfilled);
+      });
   },
 });
-
-const onPending = state => {
-  state.isLoading = true;
-};
-
-const onRejected = (state, action) => {
-  state.isLoading = false;
-  state.error = action.payload;
-};
-
-const onFulfilled = state => {
-  state.isLoading = false;
-  state.error = null;
-};
-
-const extraActions = [fetchContacts, addContact, deleteContact, editContact];
-const getActions = type => extraActions.map(action => action[type]);
 
 export const contactsReducer = contactsSlice.reducer;
