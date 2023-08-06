@@ -27,7 +27,7 @@ export const RegisterForm = () => {
             type="text"
             name="name"
             placeholder="Name"
-            className="w-3/4 rounded	 border border-black hover:border-violet-500 focus:outline-violet-500"
+            className="ml-5 w-3/4	rounded border border-black hover:border-violet-500 focus:outline-violet-500"
           />
         </label>
         <label className="mb-5 flex justify-between">
@@ -36,7 +36,7 @@ export const RegisterForm = () => {
             type="email"
             name="email"
             placeholder="example@mail.com"
-            className="ml-5 w-3/4 rounded	 border border-black hover:border-violet-500 focus:outline-violet-500"
+            className="ml-5 w-3/4 rounded	border border-black hover:border-violet-500 focus:outline-violet-500"
           />
         </label>
         <label className="mb-5 flex justify-between">
@@ -44,7 +44,7 @@ export const RegisterForm = () => {
           <input
             type="password"
             name="password"
-            className="ml-5 w-3/4 rounded	 border border-black hover:border-violet-500 focus:outline-violet-500"
+            className="ml-5 w-3/4 rounded	border border-black hover:border-violet-500 focus:outline-violet-500"
           />
         </label>
         <button

@@ -40,7 +40,7 @@ export const ContactForm = () => {
           pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
-          className="w-3/4 rounded	 border border-black hover:border-violet-500 focus:outline-violet-500"
+          className="ml-5 w-3/4 rounded border border-black hover:border-violet-500 focus:outline-violet-500"
         />
       </label>
       <label className="mb-5 flex justify-between">
@@ -52,7 +52,7 @@ export const ContactForm = () => {
           pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
-          className="w-3/4 rounded	 border border-black hover:border-violet-500 focus:outline-violet-500"
+          className="ml-5 w-3/4 rounded border border-black hover:border-violet-500 focus:outline-violet-500"
         />
       </label>
       <button
