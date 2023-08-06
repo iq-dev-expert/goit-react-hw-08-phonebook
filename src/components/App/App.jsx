@@ -1,5 +1,5 @@
 import { lazy, useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { useAuth } from 'hooks/useAuth';
 import { SharedLayout } from 'components/SharedLayout/SharedLayout';
 import { PrivateRoute } from 'components/PrivateRoute/PrivateRoute';
@@ -42,6 +42,7 @@ export const App = () => {
             <RestrictedRoute redirectTo="/contacts" component={<LoginPage />} />
           }
         />
+        <Route path="*" element={<Navigate to="/" />} />
       </Route>
     </Routes>
   );

@@ -1,7 +1,9 @@
 import { useAuth } from 'hooks/useAuth';
+import { useGlobal } from 'hooks/useGlobal';
 
 export const LoginForm = () => {
-  const { logIn, error } = useAuth();
+  const { logIn } = useAuth();
+  const { error } = useGlobal();
 
   const onSubmit = e => {
     e.preventDefault();
@@ -23,12 +25,19 @@ export const LoginForm = () => {
             type="email"
             name="email"
             placeholder="example@mail.com"
+            required
             className="input-primary"
           />
         </label>
         <label className="label-space-between">
           Password*:
-          <input type="password" name="password" className="input-primary" />
+          <input
+            type="password"
+            name="password"
+            required
+            minLength={7}
+            className="input-primary"
+          />
         </label>
         <button type="submit" className="btn-primary">
           Log In

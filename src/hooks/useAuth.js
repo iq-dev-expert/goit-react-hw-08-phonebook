@@ -1,7 +1,6 @@
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  selectError,
   selectIsLoggedIn,
   selectIsRefreshing,
   selectUser,
@@ -12,7 +11,6 @@ export const useAuth = () => {
   const user = useSelector(selectUser);
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const isRefreshing = useSelector(selectIsRefreshing);
-  const error = useSelector(selectError);
 
   const dispatch = useDispatch();
   const register = ({ name, email, password }) =>
@@ -32,7 +30,6 @@ export const useAuth = () => {
     isLoggedIn,
     user,
     isRefreshing,
-    error,
     register,
     logIn,
     logOut,

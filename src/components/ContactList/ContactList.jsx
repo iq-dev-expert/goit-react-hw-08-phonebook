@@ -1,8 +1,10 @@
 import { useContacts } from 'hooks/useContacts';
+import { useGlobal } from 'hooks/useGlobal';
 import { ContactItem } from 'components/ContactItem/ContactItem';
 
 export const ContactList = () => {
-  const { filteredContacts, error } = useContacts();
+  const { filteredContacts } = useContacts();
+  const { error } = useGlobal();
 
   return (
     <>
