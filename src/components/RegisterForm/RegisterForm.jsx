@@ -16,41 +16,30 @@ export const RegisterForm = () => {
 
   return (
     <>
-      <form
-        onSubmit={onSubmit}
-        autoComplete="off"
-        className="mx-auto mb-5 flex w-2/5 flex-col rounded p-5 shadow-custom-shadow"
-      >
-        <label className="mb-5 flex justify-between">
+      <form onSubmit={onSubmit} autoComplete="off" className="form-primary">
+        <label className="label-space-between">
           Username*:
           <input
             type="text"
             name="name"
             placeholder="Name"
-            className="ml-5 w-3/4	rounded border border-black hover:border-violet-500 focus:outline-violet-500"
+            className="input-primary"
           />
         </label>
-        <label className="mb-5 flex justify-between">
+        <label className="label-space-between">
           Email*:
           <input
             type="email"
             name="email"
             placeholder="example@mail.com"
-            className="ml-5 w-3/4 rounded	border border-black hover:border-violet-500 focus:outline-violet-500"
+            className="input-primary"
           />
         </label>
-        <label className="mb-5 flex justify-between">
+        <label className="label-space-between">
           Password*:
-          <input
-            type="password"
-            name="password"
-            className="ml-5 w-3/4 rounded	border border-black hover:border-violet-500 focus:outline-violet-500"
-          />
+          <input type="password" name="password" className="input-primary" />
         </label>
-        <button
-          type="submit"
-          className="mx-auto rounded-xl bg-violet-300 px-3 py-1 hover:bg-violet-500 hover:text-white"
-        >
+        <button type="submit" className="btn-primary">
           Register
         </button>
       </form>

@@ -36,15 +36,11 @@ export const ContactItem = ({ id, name, number, serialNumber }) => {
           onClick={() => {
             deleteContact(id);
           }}
-          className="mr-5 rounded-xl bg-violet-300 px-2 py-0.5 text-sm hover:bg-violet-500 hover:text-white"
+          className="btn-secondary mr-5"
         >
           Delete
         </button>
-        <button
-          type="button"
-          onClick={openModal}
-          className="rounded-xl bg-violet-300 px-2 py-0.5 text-sm hover:bg-violet-500 hover:text-white"
-        >
+        <button type="button" onClick={openModal} className="btn-secondary">
           Edit
         </button>
       </div>
