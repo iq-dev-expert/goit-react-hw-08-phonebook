@@ -6,17 +6,11 @@ export const Navigation = () => {
 
   return (
     <nav className="flex">
-      <NavLink
-        to="/"
-        className="mr-10 rounded-xl bg-violet-300 px-3 py-1 hover:bg-violet-500 hover:text-white focus:bg-violet-500 focus:text-white"
-      >
+      <NavLink to="/" className="nav-link-primary mr-10">
         Home
       </NavLink>
       {isLoggedIn && (
-        <NavLink
-          to="/contacts"
-          className="rounded-xl bg-violet-300 px-3 py-1 hover:bg-violet-500 hover:text-white focus:bg-violet-500 focus:text-white"
-        >
+        <NavLink to="/contacts" className="nav-link-primary">
           Contacts
         </NavLink>
       )}
