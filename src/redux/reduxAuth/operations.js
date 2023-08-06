@@ -20,7 +20,7 @@ export const register = createAsyncThunk(
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(
-        (error.message = 'All fields must be filled!')
+        (error.message = 'Error! Try another username, email or password!')
       );
     }
   }

@@ -23,6 +23,8 @@ export const RegisterForm = () => {
             type="text"
             name="name"
             placeholder="Name"
+            required
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             className="input-primary"
           />
         </label>
@@ -32,12 +34,19 @@ export const RegisterForm = () => {
             type="email"
             name="email"
             placeholder="example@mail.com"
+            required
             className="input-primary"
           />
         </label>
         <label className="label-space-between">
           Password*:
-          <input type="password" name="password" className="input-primary" />
+          <input
+            type="password"
+            name="password"
+            required
+            minLength={7}
+            className="input-primary"
+          />
         </label>
         <button type="submit" className="btn-primary">
           Register
